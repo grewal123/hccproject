@@ -1,0 +1,139 @@
+body{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+	    background-color: rgba(0,0,0);
+}
+
+h3{
+    font-family: 'Arial', sans-serif;
+    color: #727272;
+    font-weight: 300;
+}
+h2{
+    font-family: 'Roboto', sans-serif;
+    color: #727272;
+    font-weight: 400;
+}
+a{
+
+	font-family: 'Roboto', sans-serif;
+	color: #03A9F4;
+	font-weight: 300;
+	font-size: 18px;
+	margin-bottom: 24px;
+	text-decoration: none;
+
+
+}
+.header {
+    color: #ffffff;
+    padding: 15px;
+}
+.footer {
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
+.verticalLine {
+    border-left: thick solid #ff0000;
+}
+
+h1{
+    font-family: 'Roboto', sans-serif;
+    color: #727272;
+    font-weight: 300;}
+
+.renderingContainer{
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,.25);
+    border-radius: 4px;
+    background-color: white;
+
+}
+.callbackMessageHolder{
+	font-family: 'Roboto', sans-serif;
+    color: #727272;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.youtubeThumbnail{
+	max-width: 500px;
+
+}
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+}
+
+.header {
+  grid-area: header;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 120px 10px 120px 10px 120px;
+  grid-template-rows: auto;
+  grid-template-areas: "header header header header header" "sidebar . content content content";
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+.overlay {
+  background-color: red;
+  z-index: 10;
+  grid-column: content-start / content-end;
+  grid-row: header-start / content-end;
+}
+.header {
+  background-color: #999;
+}
+.youtubeThumbnail:hover{
+	cursor: pointer;
+}
+div.checkbox{
+	margin-left: -600px;
+}
+.floating-menu {
+font-family: sans-serif;
+background: yellowgreen;
+padding: 5px;;
+width: 130px;
+z-index: 100;
+position: fixed;
+}
+
+.floating-menu a,
+.floating-menu h3 {
+font-size: 0.9em;
+display: block;
+margin: 0 0.5em;
+color: white;
+}
+#youtubeOutput{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+ 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,.25);
+    border-radius: 4px;
+
+}
+#viewCont{
+	line-height: 40px
+}
+.loadingGifOfDoom{
+	width: 30px;
+	height: 30px;

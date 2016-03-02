@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" name="viewport" content="text/html; charset=utf-8;width=device-width, initial-scale=1.0">
+	<title>Hcc Project</title>
+
+	<!-- non BigSemantics include statements -->
+	<script src="./BigSemanticsJavaScript/libraries/jquery-2.0.0.min.js"></script>
+
+
+	<!-- bsjsCore Files. You must include them in this order so as to use any BigSemantics porject -->
+	<!-- Readyable is a class used to handle the asynchronous load time of the BS project
+		BSAutoSwitch is an interface to BigSemantics that can switch between using the lab's hosted service for metadata
+			and using a browser-installed extension. BSService and BSSExtension are implementations -->
+	<script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/Readyable.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/BSAutoSwitch.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/BSService.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/BSExtension.js"></script>
+	<!-- BSUtils, Downloader, ParsedURL, and simplBase are helper classes. Include them, but don't really worry about them-->
+	<script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/BSUtils.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/ParsedURL.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/Downloader.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/simpl/simplBase.js"></script>
+	<!--
+		RepoMan loads a Meta-metadata repository. Avoid doing anything with it directly; it's messy-->
+  <script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/MetadataTask.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/RepoMan.js"></script>
+
+  <script type="text/javascript" src="./BigSemanticsJavaScript/bsjsCore/MetadataViewModel.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/renderers/interfaceStyle.js"></script>
+
+  <script type="text/javascript" src="./BigSemanticsJavaScript/renderers/RendererBase.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/renderers/RenderingTask.js"></script>
+	<script type="text/javascript" src="./BigSemanticsJavaScript/renderers/VanillaMICE.js"></script>
+  <link href="./BigSemanticsJavaScript/renderers/styles/metadataRenderer.css" rel="stylesheet" type="text/css">
+  <link href="./BigSemanticsJavaScript/libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+
+  <!--Webpage-specific javascript and CSS includes-->
+	<script type="text/javascript" src="./demomob.js"></script>
+  <link rel="stylesheet" type="text/css" href="simplegrid.css" />
+    <link href="./demo.css" rel="stylesheet" type="text/css">
+    <!-- I like the roboto font because it makes me feel like a real developer-->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500,400italic,500italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+
+<!-- Upon the page being loaded, the onLoad function in demo.js will be called-->
+<body onload="onLoadRendering()">
+	<h1>Comparative Shopping Support</h1>
+  <nav class="floating-menu">
+  <h4 style="color:#000000">Filter By</h4>
+  <form>
+  <p>RAM</p>
+  <input type="checkbox" name="RAM1" value="1"> 1 GB<br>
+  <input type="checkbox" name="RAM2" value="2"> 2 GB<br>
+  <br>
+  <p>Screen Size</p>
+  <input type="checkbox" name="SS1" value="5"> 5 Inch<br>
+  <input type="checkbox" name="SS2" value="6"> 6 Inch<br>
+  <br>
+  <p>Sim Type</p>
+  <input type="checkbox" name="ST1" value="1"> Single Sim<br>
+  <input type="checkbox" name="ST2" value="2"> Dual Sim<br>
+  <br>
+  <p>Price</p>
+  <input type="checkbox" name="P1" value="150"> <200<br>
+  <input type="checkbox" name="P2" value="200"> <400<br>
+  <input type="checkbox" name="P2" value="200"> >400<br>
+  </form>
+  </nav>
+  <div id="containerPrime1" url="http://www.snapdeal.com/product/xolo-black-1x-32gb/633488491545#bcrumbLabelId:175"></div>
+  <div id="containerPrime6" url="http://www.flipkart.com/lenovo-vibe-p1m/p/itmecrurvpmzhcyg?pid=MOBEB3VWZZTZSV5P&icmpid=reco_pp_personalhistoryFooter_na_na_1"></div>
+  <div id="containerPrime5" url="http://www.flipkart.com/mi-4i/p/itme8cuyyqdwek9m?pid=MOBE7N7VRWFCBNTS&ref=L%3A-4829422894527986656&srno=p_2&query=mi&otracker=from-search"></div>
+  <div id="containerPrime4" url="http://www.amazon.com/ZenFone-Unlocked-Cellphone-Black-Warranty/dp/B00VWKKEYO"></div>
+  <div id="containerPrime2" url="http://www.snapdeal.com/product/infocus-m370-8gb/685769734109#bcrumbLabelId:175"></div>
+  <div id="containerPrime3" url="http://www.amazon.com/Moto-Unlocked-Smartphone-Black-Warranty/dp/B013SEXKI8">
+    <img class="loadingGifOfDoom" src="./loading.gif"></img>
+  </div>
+  <div class="verticalLine"></div>
+  <div class="grid grid-pad">
+    <div class="col-1-3">
+      <div class="content">
+        <h1></h1>
+      </div>
+    </div>
+    <div class="col-1-3">
+      <div class="content">
+        <h4 id="price1" style="color:#ff0000; margin-left:80px">120$</h4>
+        <div id="image1"></div>
+        <div id="title1"></div>
+      </div>
+    </div>
+    <div class="col-1-3">
+      <div class="content">
+        <h4 id="price2" style="color:#ff0000;margin-left:80px">270$</h4>
+        <div id="image2"></div>
+        <div id="title2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-pad">
+    <div class="col-1-3">
+      <div class="content">
+        <h1></h1>
+      </div>
+    </div>
+    <div class="col-1-3">
+      <div class="content">
+        <h4 id="price3" style="color:#ff0000;margin-left:80px"></h4>
+        <div id="image3"></div>
+        <div id="title3"></div>
+      </div>
+    </div>
+    <div class="col-1-3">
+      <div class="content">
+        <h4 id="price4" style="color:#ff0000;margin-left:80px"></h4>
+        <div id="image4"></div>
+        <div id="title4"></div>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-pad">
+    <div class="col-1-3">
+      <div class="content">
+        <h1></h1>
+      </div>
+    </div>
+    <div class="col-1-3">
+      <div class="content">
+        <h4 id="price5" style="color:#ff0000;margin-left:80px">299$</h4>
+        <div id="image5" style="margin-left:60px"></div>
+        <div id="title5"></div>
+      </div>
+    </div>
+    <div class="col-1-3">
+      <div class="content">
+        <h4 id="price6" style="color:#ff0000;margin-left:80px">399$</h4>
+        <div id="image6" style="margin-left:60px"></div>
+        <div id="title6"></div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="grid grid-pad">
+    <div class="col-1-3">
+      <div class="content">
+      </div>
+    </div>
+    <div class="col-1-3">
+      <div class="content">
+        <h1 style="margin-left:-50px";>FAQ</h1>
+      </div>
+    </div>
+    <div class="col-1-3">
+      <div class="content">
+        <h1 style="margin-left:-50px;">Contact Us</h1>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+</html>
